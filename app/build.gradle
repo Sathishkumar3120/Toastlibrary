@@ -1,15 +1,18 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
 }
 
 android {
     compileSdkVersion 31
-    buildToolsVersion "31.0.0"
+    buildToolsVersion "30.0.3"
+    apply plugin: 'kotlin-kapt'
 
     defaultConfig {
         applicationId "com.kotlin.library"
-        minSdkVersion 16
+        minSdkVersion 21
         targetSdkVersion 31
         versionCode 1
         versionName "1.0"
@@ -39,7 +42,16 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.0'
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
-    testImplementation 'junit:junit:4.+'
+    implementation project(path: ':mylibrary')
+    testImplementation 'junit:junit:4.13.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+
+    implementation 'com.github.Sathishkumar3120:Toastlibrary:Tag'
+   /* implementation ("com.github.Sathishkumar3120:Toastlibrary:Tag@aar") {
+        transitive = true
+        changing=true
+    }*/
+
 }
